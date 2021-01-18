@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&display=swap" rel="stylesheet">
+    <title>Linux navigation</title>
+</head>
+<body>
+    <article>
+        <h1>– Linux navigation –</h1>
+        <hr>
+
+        <h2>Introduction</h2>
+        <p>This is my first time navigating a Linux system so I can't teach you everything you need to know 
+            to use it effectively. I'm just going to try out some basic terminal commands and file 
+            manipulation and share that with you.
+        <br>
+        <br>
+            There are a lot of Linux distrubutions out there, I chose to install the latest LTS version of 
+            Ubuntu via Virtual Box. I will not go into details about the installation here, you can find 
+            many tutorials about that online if you haven't done that already. So lets open up the terminal and get started!</p><br>
+            <br>
+        
+        <h2>Basic navigation</h2>
+        <br>
+        
+        <h3>Print working directory - <code>pwd</code></h3>
+        <p>Shows the current directory you are in. If you have just started your system it's most likely 
+            your user account's home directory.</p>
+<pre>
+$ pwd
+/home/yourusername</pre>
+        <br>
+        
+        <h3>List - <code>ls</code></h3>
+        <p>Lists all the content inside the directory. It's possible to add some optional flags to the 
+            command to modify the default behavior.</p>
+<pre>
+$ ls 
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos</pre>
+        <p>It's is also possible to use <code>tree</code> command to get more fancy visualization. I had to 
+            install it first, the terminal gave me directions on how to do that.</p>
+<pre>
+$ tree
+<img src="images/tree.png" alt="tree"></pre>
+<br>
+        
+        <h3>Change directory - <code>cd</code></h3>
+        <p>This is the most basic command line there is. The directory changes according to what you type 
+            after <code>cd</code>. You can give an absolute path or a relative path which refers to a directory 
+            within the current directory. Typing <code>cd</code> alone will bring you to the home directory 
+            of the user. <code>cd -</code> will bring you to the recent directory you were in. <code>cd ..</code> 
+            will bring you to the parent directory of the directory you are in.</p>
+<pre>
+$ cd Documents
+$ pwd
+/home/yourusername/Documents
+
+$ cd ..
+$ pwd
+/home/yourusername
+
+$ cd - 
+/home/yourusername/Documents</pre>
+<br>
+        <h2>File manipulation</h2>
+        <br>
+
+        <h3>Make directory - <code>mkdir</code></h3>
+        <p>This command is used to create empty directories. After <code>mkdir</code> you write the name of 
+            the directory you want to create an it's created in the current directory. To create any 
+            directories necessary to construct a given directory path, you can use the <code>-p</code> option. This 
+            allows you to create nested directories in one step.</p>
+<pre>
+$ mkdir demo
+$ ls
+demo
+
+$ mkdir -p demo2/test
+$ ls
+demo  demo2
+
+$ cd demo2
+$ ls
+test</pre>
+<br>
+
+        <h3>Create a file - <code>touch</code></h3>
+        <p>This command creates an empty file. After <code>touch</code> you write the name of the file 
+            you want to create and it's created in the current directory. It's also possible to use an 
+            absolute path to choose another directory.</p>
+<pre>
+$ cd
+$ touch file1
+$ ls
+file1
+
+$ touch /home/yourusername/file2
+$ ls
+file1  file2</pre>
+<br>
+
+        <h3>Move - <code>mv</code></h3>
+        <p>This command is used to move files. It can also be used to rename files and directories. 
+            When using <code>mv</code> to rename you have to remember that Linux system will not 
+            prevent you from certain destructive actions. If you choose a name that exists already the 
+            previous file will be overwritten and there is no way to recover it.</p>
+<pre>
+$ mv file1 Documents
+$ ls Documents
+file1
+
+$ cd Documents
+$ mv file1 newname
+$ ls 
+newname</pre>
+<br>
+
+        <h3>Remove - <code>rm</code></h3>
+        <p>This command removes files. If you want to remove directories you can use <code>rmdir</code>, 
+            this can only be used with empty directories. if you want to remove a non-empty directory you 
+            can use <code>rm -r</code>, this will remove all of the directory's content and the directory 
+            it self. These actions cannot be undone.</p>
+<pre>
+$ rm newname
+
+$ rmdir demo
+
+$ rm -r demo2</pre>
+<br>
+
+        <h3>Copy - <code>cp</code></h3>
+        <p>This command copies files. If you want to copy directories you can use <code>cp -r</code>. 
+            Note that as with the <code>mv</code> command it's possible to overwrite files if you 
+            choose a name that already exists.</p>
+<pre>
+$ cp newname newname2
+$ ls
+newname  newname2</pre>
+<br>
+
+        <h2>Conclusion</h2>
+        <p>I had alot of fun trying out the Linux system. There are alot of commands I still have 
+            to try out but I won't cover more here, this could then go on forever. Below is a link 
+            to a Unix/Linux command line cheet sheet for you to check out, good luck! <br>
+            <br>
+            <a href="http://files.fosswire.com/2007/08/fwunixref.pdf" target="blank" class="cs-link">CheetSheet!</a></p>
+    </article>
+</body>
+</html>
